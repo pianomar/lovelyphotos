@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="offline_icon_size">112dp</dimen>
+    <dimen name="standard_margin">16dp</dimen>
+    <dimen name="album_grid_margin">8dp</dimen>
+    <dimen name="title_item_height">64dp</dimen>
+    <dimen name="font_size_title">18sp</dimen>
+    <dimen name="album_recvw_end_margin">8dp</dimen>
+</resources>
