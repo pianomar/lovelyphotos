@@ -3,4 +3,5 @@
     <string name="you_are_offline">You\'re offline</string>
     <string name="lbl_albums">Albums</string>
     <string name="msg_error_generic">Something went wrong, please try again</string>
+    <string name="content_desc_thumbnail">photo</string>
 </resources>

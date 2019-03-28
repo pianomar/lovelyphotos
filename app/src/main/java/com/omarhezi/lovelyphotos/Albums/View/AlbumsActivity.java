@@ -1,5 +1,6 @@
 package com.omarhezi.lovelyphotos.Albums.View;
 
+import android.content.Intent;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +11,8 @@ import com.omarhezi.lovelyphotos.General.Adapters.AlbumsAdapter;
 import com.omarhezi.lovelyphotos.General.Adapters.ViewHolders.AlbumViewHolder;
 import com.omarhezi.lovelyphotos.General.Base.BaseActivity;
 import com.omarhezi.lovelyphotos.General.DTOs.AlbumDTO;
+import com.omarhezi.lovelyphotos.General.Misc.Constants;
+import com.omarhezi.lovelyphotos.Photos.View.PhotosActivity;
 import com.omarhezi.lovelyphotos.R;
 
 import java.util.List;
@@ -143,7 +146,9 @@ public class AlbumsActivity extends BaseActivity implements IAlbumsView, AlbumVi
     }
 
     private void goToPhotosActivity(AlbumDTO albumDTO) {
-        // TODO: 3/27/2019 Go to photo activity
+        Intent intent = new Intent(this, PhotosActivity.class);
+        intent.putExtra(Constants.ALBUM_ID_KEY, albumDTO.getId());
+        startActivity(intent);
     }
 
     @Override
