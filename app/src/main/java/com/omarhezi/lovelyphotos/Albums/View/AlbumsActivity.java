@@ -105,6 +105,37 @@ public class AlbumsActivity extends BaseActivity implements IAlbumsView, AlbumVi
         });
     }
 
+    private void explode(AlbumDTO albumDTO, View clickedView) {
+        final Rect viewRect = new Rect();
+        clickedView.getGlobalVisibleRect(viewRect);
+
+        final Explode explode = new Explode();
+        explode.setEpicenterCallback(new Transition.EpicenterCallback() {
+            @Override
+            public Rect onGetEpicenter(@NonNull Transition transition) {
+                return viewRect;
+            }
+        });
+        explode.excludeTarget(clickedView, true);
+        TransitionSet set = new TransitionSet()
+                .addTransition(explode)
+                .addTransition(new Fade().addTarget(clickedView))
+                .addListener(new TransitionListenerAdapter() {
+                    @Override
+                    public void onTransitionEnd(@NonNull Transition transition) {
+                        transition.removeListener(this);
+                        goToPhotosActivity(albumDTO);
+                    }
+                });
+        TransitionManager.beginDelayedTransition(mRecVwHomeAlbums, set);
+
+        // remove all views from Recycler View
+        mRecVwHomeAlbums.setAdapter(null);
+    }
+
+    /**
+     * Because of the exploding animation, this has to be done so he
+     */
     @Override
     protected void onResume() {
         super.onResume();
@@ -117,7 +148,7 @@ public class AlbumsActivity extends BaseActivity implements IAlbumsView, AlbumVi
 
     @Override
     public void onAlbumClick(AlbumDTO albumDTO, View view) {
-        goToPhotosActivity(albumDTO);
+        explode(albumDTO, view);
     }
 
     @Override
