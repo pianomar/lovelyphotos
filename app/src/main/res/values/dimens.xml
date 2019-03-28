@@ -6,4 +6,6 @@
     <dimen name="title_item_height">64dp</dimen>
     <dimen name="font_size_title">18sp</dimen>
     <dimen name="album_recvw_end_margin">8dp</dimen>
+    <dimen name="photo_item_margin">2dp</dimen>
+    <dimen name="progressvw_load_more_size">24dp</dimen>
 </resources>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/const_vw_photos_rootVw"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Photos.View.PhotosActivity">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rec_vw_photos"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="@dimen/photo_item_margin"
+        android:clipToPadding="false"
+        android:paddingTop="@dimen/standard_margin" />
+
+    <include layout="@layout/progress_layout" />
+
+    <ProgressBar
+        android:id="@+id/progressvw_load_more"
+        android:visibility="gone"
+        android:layout_marginBottom="@dimen/standard_margin"
+        android:layout_width="@dimen/progressvw_load_more_size"
+        android:layout_height="@dimen/progressvw_load_more_size"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
