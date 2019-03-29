@@ -1,12 +1,5 @@
 package com.omarhezi.lovelyphotos.Photos.View;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.recyclerview.widget.RecyclerView;
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
@@ -21,10 +14,17 @@ import com.omarhezi.lovelyphotos.General.DTOs.PhotoDTO;
 import com.omarhezi.lovelyphotos.General.Misc.Constants;
 import com.omarhezi.lovelyphotos.Photos.Presenter.IPhotosPresenter;
 import com.omarhezi.lovelyphotos.Photos.Presenter.PhotosPresenter;
+import com.omarhezi.lovelyphotos.PhotosFullScreen.View.PhotosFullScreenActivity;
 import com.omarhezi.lovelyphotos.R;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.recyclerview.widget.RecyclerView;
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class PhotosActivity extends BaseActivity implements IPhotosView, PhotoViewHolder.IPhotoEventsListener {
 
@@ -131,6 +131,13 @@ public class PhotosActivity extends BaseActivity implements IPhotosView, PhotoVi
 
     @Override
     public void onClickPhoto(PhotoDTO photoDTO) {
-        // TODO: 3/28/2019 Take to full screen
+        Intent intent = new Intent(this, PhotosFullScreenActivity.class);
+        List<PhotoDTO> items = mAdapter.getItems();
+        if (items != null) {
+            int indexOfPhotoClicked = items.indexOf(photoDTO);
+            intent.putExtra(Constants.PHOTO_POSITION_KEY, indexOfPhotoClicked);
+            intent.putParcelableArrayListExtra(Constants.PHOTOS_KEY, (ArrayList<? extends Parcelable>) items);
+            startActivity(intent);
+        }
     }
 }

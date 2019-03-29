@@ -11,4 +11,6 @@ public class Constants {
     public static final String URL_KEY = "url";
     public static final String THUMBNAIL_URL_KEY = "thumbnailUrl";
     public static final String LIMIT_QUERY_KEY = "_limit";
+    public static final String PHOTOS_KEY = "_photos";
+    public static final String PHOTO_POSITION_KEY = "position";
 }

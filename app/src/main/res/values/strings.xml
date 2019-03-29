@@ -4,4 +4,5 @@
     <string name="lbl_albums">Albums</string>
     <string name="msg_error_generic">Something went wrong, please try again</string>
     <string name="content_desc_thumbnail">photo</string>
+    <string name="content_desc_fullscreen">Image</string>
 </resources>

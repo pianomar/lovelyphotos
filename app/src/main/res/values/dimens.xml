@@ -8,4 +8,5 @@
     <dimen name="album_recvw_end_margin">8dp</dimen>
     <dimen name="photo_item_margin">2dp</dimen>
     <dimen name="progressvw_load_more_size">24dp</dimen>
+    <dimen name="double_standard_margin">32dp</dimen>
 </resources>

@@ -148,6 +148,7 @@ public class AlbumsActivity extends BaseActivity implements IAlbumsView, AlbumVi
     private void goToPhotosActivity(AlbumDTO albumDTO) {
         Intent intent = new Intent(this, PhotosActivity.class);
         intent.putExtra(Constants.ALBUM_ID_KEY, albumDTO.getId());
+        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         startActivity(intent);
     }
 
